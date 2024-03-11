@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng nhập</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient( #ffff99, #ace7ff);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        form {
+            background: linear-gradient( #ffff99, #ace7ff);
+            color: #333;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            position: relative;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: calc(100% - 40px); /* Đảm bảo ô nhập liệu không bị tràn ra ngoài */
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            box-sizing: border-box;
+            color: #333;
+            background-color: transparent;
+        }
+
+        .suffix {
+            position: absolute;
+            right: 20px; /* Khoảng cách giữa kí tự emoji và ô màu đỏ */
+            top: 50%;
+            transform: translateY(-50%);
+            color: #333;
+            font-weight: bold;
+        }
+
+        .reveal-toggle {
+            position: absolute;
+            right: 40px; /* Khoảng cách giữa kí tự "R" và ô nhập mật khẩu */
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            color: #333;
+            background: none;
+            border: none;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            background-color: #4caf50;
+            color: #ffffff;
+            padding: 10px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <form action="process_login.php" method="post">
+        <h2>📲Login</h2>
+        <label for="username">Tên người dùng:</label>
+        <div style="position: relative;">
+            <input type="text" id="username" name="username" required>
+            <span class="suffix">👤</span>
+        </div>
+        <label for="password">Mật khẩu:</label>
+        <div style="position: relative;">
+            <input type="password" id="password" name="password" required>
+          <span class="suffix">🔑</span>
+            <button type="button" class="reveal-toggle" onclick="togglePassword()">👀</button>
+        </div>
+        <input type="submit" value="Đăng nhập">
+    </form>
+
+    <script>
+        function togglePassword() {
+            var passwordField = document.getElementById("password");
+            if (passwordField.type === "password") {
+                passwordField.type = "text";
+            } else {
+                passwordField.type = "password";
+            }
+        }
+    </script>
+</body>
+</html>

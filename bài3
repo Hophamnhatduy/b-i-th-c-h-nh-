@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>LIÊN HỆ</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      color: #333; /* Màu chữ chính */
+    }
+
+    .container {
+      text-align: left; /* Thêm căn lề trái */
+    }
+
+    .header {
+      background-color: #ffff;
+      color: #00000;
+      padding: 1rem;
+      margin-left: 12px;
+    }
+
+    /* Thêm đường kẻ ngang */
+    .header hr {
+      border: 1px solid #ff0000; /* Màu đỏ */
+      margin-top: 20px ; /* Khoảng cách với chữ "Liên hệ" */
+    }
+
+    .contact-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      max-width: 800px;
+      margin: center;
+      padding: none;
+      flex-direction: row-reverse; /* chuyển hướng */
+    }
+
+    .contact-form {
+      flex: 1;
+      color: #555; /* Màu chữ cho phần form */
+    }
+
+    .contact-form label {
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    .contact-form input[type="text"],
+    .contact-form input[type="email"],
+    .contact-form textarea {
+      width: 260%; /* Phóng box lớn sang lề phải */
+      padding: 0.5rem;
+      margin-bottom: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    .contact-form textarea {
+      resize: vertical;
+    }
+
+    .contact-form button {
+      background-color: #007bff; /* Màu xanh dương */
+      border: none;
+      color: #fff;
+      padding: 0.5rem;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+
+    .contact-form button:hover {
+      background-color: #0056b3; /* Màu xanh dương nhạt khi di chuột qua */
+    }
+
+    .contact-info {
+      flex: 1;
+      padding-left: 2rem;
+      color: #444; /* Màu chữ cho phần thông tin liên hệ */
+    }
+
+    .contact-info h2 {
+      margin-top: 0;
+    }
+
+    .contact-info p {
+      margin-bottom: 0.5rem;
+    }
+
+    .contact-info i {
+      margin-right: 0.5rem;
+    }
+
+    /* Màu chữ cho "Hãy liên lạc với chúng tôi bất cứ khi nào" */
+    .contact-form label {
+      color: #006666 ;
+    }
+
+    /* Màu chữ cho "LIÊN HỆ" */
+    .header h1 {
+      color: #006666;
+    }
+  </style>
+  
+<script>
+    function submitForm() {
+      var fullName = document.getElementById('fullName').value;
+      var email = document.getElementById('email').value;
+      var topic = document.getElementById('topic').value;
+      var message = document.getElementById('message').value;
+
+      if (fullName === '' || email === '' || topic === '' || message === '') {
+        alert('Vui lòng điền đầy đủ thông tin');
+      } else {
+
+        var confirmation = confirm('Xác nhận lại nội dung trước khi gửi?\nHọ và tên: ' + fullName + '\nEmail: ' + email + '\nTiêu đề: ' + topic + '\nNội dung: ' + message);
+
+        if (confirmation) {
+          document.forms[0].submit();
+        } else {
+          // "Cancel"
+          alert('Bạn đã hủy bỏ việc gửi tin nhắn.');
+        }
+      }
+    }
+  </script>
+  
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>LIÊN HỆ</h1>
+      <hr>
+    </div>
+    <div class="contact-container">
+      <div class="contact-form">
+        <form action="/submit_form" method="post">
+          <label for="fullName">Hãy liên lạc với chúng tôi bất cứ khi nào!!!</label>
+          <input type="text" id="fullName" name="fullName" placeholder="Họ và tên" required>
+          
+          <div style="position: relative;">
+            <input type="text" id="email" name="email" placeholder="Địa chỉ Email" required>
+          </div>
+          <input type="text" id="topic" name="topic" placeholder="Tiêu đề bài viết" required>
+
+          <textarea id="message" name="message" rows="15" placeholder="Nội dung cần gửi" required></textarea>
+
+          <button type="submit" onclick="submitForm()">Gửi tin nhắn</button>
+        </form>
+      </div>
+      
+      <div class="contact-info">
+        <h2>Thông tin</h2>
+        <p><i class="fas fa-map-marker-alt"></i>Địa chỉ: Kp 6, P Linh Trung, Tp Thủ Đức, Tp HCM</p>
+        <p><i class="fas fa-phone"></i>Điện thoại: 0123 456 789</p>
+        <p><i class="far fa-envelope"></i>Email: info@uit.com</p>
+      </div>
+    </div>
+  </div>
+</body>
+
+  
+</html>

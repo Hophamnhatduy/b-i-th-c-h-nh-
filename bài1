@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giải phương trình bậc 1</title>
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 20px; /* Tăng kích thước của văn bản */
+        }
+        body {
+            flex-direction: column;
+        }
+        input[type="number"], input[type="submit"] {
+            font-size: 20px; /* Tăng kích thước của ô nhập liệu và nút */
+            padding: 10px;
+        }
+        #result {
+            padding: 10px; /* Thêm đệm cho phần kết quả */
+            margin-top: 20px; /* Tạo khoảng cách giữa ô nhập liệu và kết quả */
+        }
+        .success {
+            background-color: lightblue; /* Thay đổi màu nền thành màu xanh */
+        }
+    </style>
+</head>
+<body>
+    <h2>GIẢI PHƯƠNG TRÌNH BẬC 1:</h2>
+    <form id="equationForm">
+        <label for="a">Nhập hệ số a:</label>
+        <input type="number" id="a" name="a" required><br><br>
+        <label for="b">Nhập hệ số b:</label>
+        <input type="number" id="b" name="b" required><br><br>
+        <input type="submit" value="Giải phương trình">
+    </form>
+    <div id="result"></div>
+
+    <script>
+        document.getElementById("equationForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Ngăn chặn việc gửi form
+
+            // Lấy giá trị của hệ số a và b từ form
+            var a = parseFloat(document.getElementById("a").value);
+            var b = parseFloat(document.getElementById("b").value);
+
+            // Kiểm tra nếu a = 0, không thể giải phương trình bậc 1
+            if (a === 0) {
+                document.getElementById("result").className = ""; // Xóa bất kỳ lớp nào đã được đặt trước đó
+                document.getElementById("result").innerHTML = "Hệ số a không thể bằng 0. Phương trình không phải là phương trình bậc 1.";
+                return;
+            }
+
+            // Giải phương trình
+            var x = -b / a;
+
+            // Hiển thị kết quả
+            document.getElementById("result").className = "success"; // Thêm lớp "success" cho phần tử kết quả
+            document.getElementById("result").innerHTML = "Nghiệm của phương trình " + a + "x + " + b + " = 0 là: x = " + x;
+        });
+    </script>
+</body>
+</html>

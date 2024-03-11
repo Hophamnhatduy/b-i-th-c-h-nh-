@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            animation: hologram 5s infinite alternate; /* Thêm hiệu ứng chuyển động */
+        }
+
+        .login-container {
+            background: linear-gradient( #ffff99, #ace7ff); /* Gradient hồng và xanh */
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 300px;
+            text-align: center; /* Căn giữa văn bản */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-bottom: 8px;
+            text-align: left; /* Căn văn bản sang trái */
+        }
+
+        p {
+            font-size: 14px; /* Chỉnh kích thước chữ cho dòng chữ */
+            margin-bottom: 30px; /* Giảm khoảng cách giữa dòng chữ và input */
+            margin-top: -10px; /* Đặt khoảng cách giữa dòng chữ và trên dòng "Log In" */
+        }
+
+        input {
+            padding: 8px;
+            margin-bottom: 16px;
+            border: none;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: #ffff;
+            color: #00000;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+          
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        @keyframes hologram {
+            0% {
+                background: linear-gradient(45deg, #ffff99, #ace7ff);
+            }
+            100% {
+                background: linear-gradient(45deg, #ffff99, #ace7ff);
+            }
+        }
+
+        /* Thêm phần CSS cho ô chọn */
+        .product-box {
+            display: flex;
+            justify-content: space-between; /* Căn giữa theo chiều ngang */
+            margin-top: 20px;
+        }
+
+        .product {
+            flex-grow: 1;
+            padding: 10px;
+            text-align: center;
+            cursor: pointer;
+            border-radius: 4px;
+            color: #00000; /* Màu chữ đen */
+            margin-top: 30px;
+            margin-bottom: 30px;
+            padding: 10px;
+          height: 1vh;
+        }
+
+        .product-forgot {
+            background-color: #fffff; /* Trắng */
+        }
+        .product-signup {
+            background-color: #ffb5e8; /* Trắng */
+        }
+      
+        .product:hover {
+            background-color: #45a049; /* nhấp vào là đổi màu */
+        }
+    </style>
+    <title>Login Page</title>
+</head>
+<body>
+    <div class="login-container">
+        <form id="loginForm">
+            <h2>Log In</h2>
+            <p>Login here using your username and password</p>
+          
+            <input type="text" id="fullName" name="fullName" placeholder="👤 UserName" required>
+   
+            <input type="text" id="Password" name="password" placeholder="🔑 Password" required>
+            
+            <button type="submit">Login</button>
+        </form>
+        <div class="product-box">
+            <div class="product product-forgot" onclick="redirectToForgotPasswordPage()">
+                <p>Forgot Password</p>
+            </div>
+            <div class="product product-signup" onclick="redirectToSignupPage()">
+                <p>Sign up</p>
+            </div>
+        </div>   
+    </div>
+</body>
+</html>
